@@ -59,7 +59,7 @@ class scFoundation(nn.Module):
         self.device = device
 
     def build(self):
-        model,model_config = load_model_frommmf(self.ckpt_path)
+        model, model_config = load_model_frommmf(self.ckpt_path)
         self.token_emb = model.token_emb
         self.pos_emb = model.pos_emb
         self.encoder = model.encoder
@@ -109,6 +109,7 @@ class RuiPathST(nn.Module):
         self.vision_model = vision_model
         self.sc_model = sc_model
         self.temperature = nn.Parameter(torch.Tensor([1.]))
+        self.device = vision_model.device
     
     def embed_img(self, img):
         return self.vision_model(img)

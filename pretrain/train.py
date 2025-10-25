@@ -23,6 +23,7 @@ ruipathvit.build()
 ckpt_path = "/mnt/DATA-4/hx/Ruipath/scFoundation/model/models/models.ckpt"
 out_dim = ruipathvit.model.num_features
 sc_model = scFoundation(ckpt_path, out_dim, device)
+sc_model.build()
 
 import torch.optim as optim
 
@@ -54,5 +55,5 @@ for epoch in range(3):
     # 验证部分（可选，InfoNCE 通常不直接验证 accuracy）
     print(f"Loss on epoch {epoch+1}: {running_loss / len(train_loader):.4f}")
 
-torch.save(model.state_dict(), "/mnt/DATA-4/hx/Ruipath/RuiPathST_ckp")
-print(f"Model saved to /mnt/DATA-4/hx/Ruipath/RuiPathST_ckp")
+torch.save(model.state_dict(), "/mnt/DATA-4/hx/Ruipath/RuiPathST_ckp/model_epoch3.pth")
+print(f"Model saved to /mnt/DATA-4/hx/Ruipath/RuiPathST_ckp/mnt/DATA-4/hx/Ruipath/RuiPathST_ckp/model_epoch3.pth")
